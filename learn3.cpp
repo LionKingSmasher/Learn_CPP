@@ -1,15 +1,23 @@
 #include <iostream>
 
-
-template<int A>
-struct test_struct{
-	static const int a_ = A;
+template<int NUM>
+struct TEST{
+	int num=NUM;
 };
 
+auto A(int a)->int{
+	return a;
+}
+
+template<typename T>
+T add(T O, T W){
+	return O + W;
+}
 
 int main(){
-	typedef test_struct<0> z;
-	typedef test_struct<1> o;
-	std::cout << "결과: " << o::a_ << std::endl;
-//	std::cout << "Hello World" << std::endl;
+	TEST<0> o;
+	TEST<1> w;
+	std::cout << "출력 결과: " << o.num << std::endl;
+	std::cout << "출력 결과: " << A(2) << std::endl;
+	std::cout << "출력 결과: " << add<int>(o.num, w.num) << std::endl;
 }
