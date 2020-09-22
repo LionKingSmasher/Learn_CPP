@@ -11,6 +11,12 @@ std::string calc(std::string a, std::string b, char calc){
   case '-':
     num1-=num2;
     break;
+  case '*':
+    num1*=num2;
+    break;
+  case '/':
+    num1/=num2;
+    break;
   }
   return std::to_string(num1);
 }

@@ -7,7 +7,7 @@
 
 int main(){
 //	int re=0; //초기화
-	std::string a, b;
+	std::string a, b, chg;
 	char cal_char;
 	std::string num_chk;
 	std::stack<std::string> num; //숫자 스택 부분
@@ -19,6 +19,13 @@ int main(){
 		std::cin >> input;
 		if(input=="exit")
 			break;
+		else if(input=="information"){
+			std::cout << "*****************정보******************" << std::endl;
+			std::cout << "프로그램명: Math Engine" << std::endl;
+			std::cout << "버전: 0.1" << std::endl;
+			std::cout << "개발자: 신현규(TigerShib)" << std::endl;
+			std::cout << "**************************************" << std::endl;
+		}
 		else {
 			for(int i = 0; i <= input.size(); i++){
 				if(chk(input[i])){
@@ -47,6 +54,15 @@ int main(){
 				num.pop();
 				cal_char = cal.top();
 				cal.pop();
+				if(cal.size() > 0){
+					if(cal.top() == '-'){
+						cal.pop();
+						chg = a;
+						a = "-";
+						a.append(chg);
+						cal.push('+');
+					}
+				}
 //   		std::cout << a << std::endl;
 				std::string ret = calc(a, b, cal_char);
 //			std::cout << cal.size() << std::endl;
