@@ -4,7 +4,7 @@ sum:
 	mov rdx, rdi
 	dec rdx
 	mov r8, rsi
-	mov rax, 0
+	xor rax, rax
 	jmp start
 
 start:
