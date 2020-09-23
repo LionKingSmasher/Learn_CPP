@@ -28,3 +28,11 @@ bool chk(char input){
   }
   else return false;
 }
+
+void information(){
+  std::cout << "*****************정보******************" << std::endl;
+  std::cout << "프로그램명: Math Engine" << std::endl;
+  std::cout << "버전: 0.1" << std::endl;
+  std::cout << "개발자: 신현규(TigerShib)" << std::endl;
+  std::cout << "**************************************" << std::endl;
+}

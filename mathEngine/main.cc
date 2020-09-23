@@ -9,10 +9,13 @@ int main(){
 //	int re=0; //초기화
 	std::string a, b, chg;
 	char cal_char;
-	std::string num_chk;
+	std::string num_chk, num_chk_cal_;
 	std::stack<std::string> num; //숫자 스택 부분
+	std::stack<std::string> num_cal_; //숫자(괄호 계산) 스택 부분
 	std::stack<char> cal; //기호 스택 부분
-	std::string input;
+	std::stack<char> cal_cal_; //기호(괄호 계산) 스택 부분
+	std::string input, input_cal_ = "";
+	int start, end;
 	std::cout << "MATH ENGINE v0.1" << std::endl;
 	while(true){
 		std::cout << "입력:";
@@ -20,18 +23,34 @@ int main(){
 		if(input=="exit")
 			break;
 		else if(input=="information"){
-			std::cout << "*****************정보******************" << std::endl;
-			std::cout << "프로그램명: Math Engine" << std::endl;
-			std::cout << "버전: 0.1" << std::endl;
-			std::cout << "개발자: 신현규(TigerShib)" << std::endl;
-			std::cout << "**************************************" << std::endl;
+			information();
 		}
-		else {
+		else if(input[i]){
+calc:
 			for(int i = 0; i <= input.size(); i++){
 				if(chk(input[i])){
 //  			std::cout << input[i] << std::endl;
 					num_chk.append(1, input[i]);
 					continue;
+				}
+				else if(input[i]=='('){
+					start = i;
+					for(int u=i+1; input[u]!=')' u++){
+						if(chk(input[u])){
+							num_chk_cal_.append(1, input[u]);
+							continue;
+						}
+						else{
+							if(input[u+1]!=')') cal.push(input[u]);
+							num.push(num_chk_cal_);
+							num_chk_cal_ = "";
+						}
+						if(input[u+1]==')') end = u+1;
+					}
+					for(int u=i; u <= input.size(); u++){
+
+					}
+					goto calc;
 				}
 				else{
 //   			std::cout << num_chk << std::endl;
@@ -72,5 +91,5 @@ int main(){
 			num.pop();
 		}
 	}
-	std::cout << "***************종료***************" << std::endl;
+	std::cout << "*****************종료*****************" << std::endl;
 }
