@@ -15,6 +15,12 @@ struct MATH
     real += second.real;
     return *this;
   }
+  MATH& operator-(MATH& second)
+  {
+    imaginary -= second.imaginary;
+    real -= second.real;
+    return *this;
+  }
 };
 
 /*
@@ -30,7 +36,7 @@ struct Test{
 */
 
 int main(){
-  MATH<0> first(0, 3), second(4, 2);
-  MATH<0> result = first + second;
+  MATH<0> first(5, 3), second(4, 2);
+  MATH<0> result = first - second;
   std::cout << "<" << first.imaginary << "," << result.real << ">" << std::endl;
 }
