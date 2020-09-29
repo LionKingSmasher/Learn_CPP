@@ -7,7 +7,7 @@ typedef uint_least32_t u32; //Same as unsigned int
 
 struct Mem //Memory
 {
-  static constexpr u32 MAX_MEM = 1024 * 64;
+  static constexpr u32 MAX_MEM = 1024 * 64; //64MB 메모리
   u8 Data[MAX_MEM];
   void Initalize()
   {
@@ -68,6 +68,19 @@ struct CPU //6502
     ACC = RX = RY = 0;
     memory.Initalize();
   }
+
+  u8 FetchByte(u32 Cycles, Mem& memory)
+  {
+    u8 Data = memory[PC];
+  }
+
+  void Execute(u32 Cycles, Mem& memory)
+  {
+    while(Cycles > 0)
+    {
+      u8 Ins = FetchByte(Cycles, memory);
+    }
+  }
 };
 
 int main()
@@ -75,4 +88,5 @@ int main()
   CPU cpu;
   Mem mem;
   cpu.Reset(mem);
+  cpu.Execute(2, mem);
 }
