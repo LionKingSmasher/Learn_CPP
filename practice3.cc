@@ -13,7 +13,7 @@ int main(){
   u32 a = test_template<u32>(9999);
   u16 d = test_template<u16>(888);
   u8 b = test_template<u8>(226);
-  std::cout << a << std::endl;
+  std::cout << !!!a << std::endl;
   std::cout << d << std::endl;
   std::cout << b << std::endl;
 }
