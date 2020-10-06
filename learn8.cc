@@ -1,21 +1,25 @@
 #include <cstdio>
 
-#define T(X, Y) X->data = Y
+#define LA(X, Y) X->addr = &Y //Load Address
 
 struct WOW
 {
     int data;
+    struct WOW *addr = NULL; //Address
 };
 
-void t(struct WOW *u, int n);
+void Load_Adress(struct WOW *u, struct WOW w);
 
 int main(){
     struct WOW w;
-    int a = 90;
-    t(&w, a);
-    printf("%d\n", w.data);
+    struct WOW u;
+    w.data = 1;
+    u.data = 2;
+    Load_Adress(&w, u);
+    printf("%d\n", w.addr->data);
 }
 
-void t(struct WOW *u, int n){
-    T(u, n);
+void Load_Adress(struct WOW *u, struct WOW w){
+    LA(u, w);
+    return;
 }
