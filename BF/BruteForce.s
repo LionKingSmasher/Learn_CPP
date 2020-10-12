@@ -1,31 +1,38 @@
-
 global BF
 section .text
-BF:
-	xor rax, rax ;0으로 초기화
-	xor r10, r10 ;브루트 포스 대상 문자열 길이
-	xor r11, r11 ;브루트 포스 rcx 카운터
-	xor r9, r9 ;브루트포스 대상 문자열
-	mov r8, rdi ;문자열
-	mov rcx, rsi ;문자열 길이
-	mov byte [r9], 0
+BF: ;start
+    xor rax, rax ;rax = 0
+    xor r10, r10 ;length
+    xor r11, r11 ;rcx counter
+    xor r9, r9   ;length
+    mov r8, rdi  ;input length
+    
+    mov rcx, rsi ;length
+    mov byte [r9], 0
 
 start:
-	add byte [r9+r10], 1
-	jmp cmp_
-
-done:
-	ret
+    xor r11, r11 ;if loop than make r11 to zero
+    add byte [r9+r10], 1
+    jmp cmp_
 
 cmp_:
-	cmp [r9+r11], 33
-	jb update
-	mov rdx, [r8+r11]
-	cmp [r9+r11], rdx
-	jne start
-	inc r11
-	loop cmp_
-	jmp done
+    cmp [r9+r11], 33 ;check r9+r11's ascii code
+    jb update_zero        ;jump update
+    cmp [r9+r11], 127
+    jae update_lower
+    mov rdx, [r8+r11];rdx = [r8+r11]
+    cmp [r9+r11], rdx
+    jne start
+    inc r11
+    loop cmp_
+    jmp done
 
-update:
-	jmp start
+update_zero:
+    mov [r9+r11], 32 ;
+    jmp start
+
+update_lower:
+    ;TODO
+
+done:
+    ret          ;return
