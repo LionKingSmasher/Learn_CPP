@@ -18,7 +18,14 @@ done:
 	ret
 
 cmp_:
-	cmp byte [r9+r11], byte [r8+r11]
+	cmp [r9+r11], 33
+	jb update
+	mov rdx, [r8+r11]
+	cmp [r9+r11], rdx
 	jne start
 	inc r11
 	loop cmp_
+	jmp done
+
+update:
+	jmp start
