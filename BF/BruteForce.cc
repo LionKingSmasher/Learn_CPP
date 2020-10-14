@@ -1,9 +1,4 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <cinttypes>
-
-extern "C" char* BF(char[]);
+#include "BF.h"
 
 int main(){
   char str[256];
