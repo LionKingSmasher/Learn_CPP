@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cinttypes>
-
-extern "C" {
-    char* test(char* input);
-}
+#include "header/Crypto.h"
 
 int main(int argc, char **argv)
 {
-    char t[256] = "abcabcabc\0";
+    char t[256] = "abcabcabcabcabcabcabc\0";
     char* a = test(t);
-    printf("%s\n", a);
+    for(int i = 0; a[i] != '\0'; i++){
+    	printf("%8x\n", a[i]);
+    }
 }
