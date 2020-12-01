@@ -1,0 +1,3 @@
+/home/shinpc/Desktop/CPP/boost/asio/Day2/CMakeFiles/rebuild_cache.dir
+/home/shinpc/Desktop/CPP/boost/asio/Day2/CMakeFiles/edit_cache.dir
+/home/shinpc/Desktop/CPP/boost/asio/Day2/CMakeFiles/app.out.dir

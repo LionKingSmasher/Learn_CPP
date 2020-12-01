@@ -35,7 +35,7 @@ calc:
 				}
 				else if(input[i]=='('){
 					start = i;
-					for(int u=i+1; input[u]!=')' u++){
+					for(int u=i+1; input[u]!=')'; u++){
 						if(chk(input[u])){
 							num_chk_cal_.append(1, input[u]);
 							continue;
@@ -47,8 +47,9 @@ calc:
 						}
 						if(input[u+1]==')') end = u+1;
 					}
-					for(int u=i; u <= input.size(); u++){
-
+					for(int u=i; u < input.size(); u++){ //shift
+						if(!(u > end)) input[u] = input[end+u];
+						else input[u] = '';
 					}
 					goto calc;
 				}

@@ -5,4 +5,9 @@
 #include <string>
 #include <cinttypes>
 
-char* BF(char* input);
+#define TRUE 1
+#define FALSE 0
+
+char *BF(char *input);
+
+

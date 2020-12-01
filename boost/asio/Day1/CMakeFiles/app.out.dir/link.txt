@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/app.out.dir/learn1.cpp.o  -o app.out -lboost_system -lboost_thread -lpthread 

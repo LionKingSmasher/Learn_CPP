@@ -1,6 +1,9 @@
 #include <cstdio>
 
 #define LA(X, Y) X->addr = &Y //Load Address
+#define ARROW 224
+#define LEFT 75
+#define RIGHT 77
 
 struct WOW
 {

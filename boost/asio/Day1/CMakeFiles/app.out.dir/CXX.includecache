@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shinpc/Desktop/CPP/boost/asio/learn1.cpp
+iostream
+-
+boost/asio.hpp
+-
+boost/date_time/posix_time/posix_time.hpp
+-
+
